@@ -8,4 +8,10 @@ describe "authors/new" do
 		expect(rendered).to match /last_name/
 		expect(rendered).to match /homepage/
 	end
+
+	it "displays a submit button" do
+		render :template => "authors/new.html.erb"
+
+		expect(rendered).to match /input type="submit"/	
+	end
 end
