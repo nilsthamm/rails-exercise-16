@@ -25,4 +25,11 @@ describe "authors/index" do
 
 		expect(rendered).to have_selector 'a', :text => 'Edit'
 	end
+
+	it "has a link to delete an author" do
+		assign(:authors, Author.all)
+		render :template => "authors/index.html.erb"
+
+		expect(rendered).to have_selector 'a', :text => 'Delete'
+	end
 end
