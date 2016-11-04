@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe "authors/new" do
+	before :each do
+		assign(:author, Author.new)
+	end
+
 	it "displays fields for first name, last name and homepage" do
 		render :template => "authors/new.html.erb"
 
