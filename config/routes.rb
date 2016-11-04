@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'papers/new'
 
   resources :authors
+  resources :papers
 
   get 'authors/new'
 
