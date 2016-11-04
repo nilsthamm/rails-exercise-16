@@ -16,7 +16,7 @@ end
 describe "Authors#show page", :type => :feature do
 
   it "should show the authors details" do
-    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing')
+    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing', homepage:"http://wikipedia.de/alan_turing")
     visit authors_path + "/#{Author.find(@alan_turing).id}"
 
     expect(page).to have_text 'First name: Alan'
