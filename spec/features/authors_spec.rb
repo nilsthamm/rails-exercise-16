@@ -25,3 +25,13 @@ describe "Authors#show page", :type => :feature do
 
   end
 end
+
+describe "Authors#index page", :type => :feature do
+  
+  it "should create an instance of the given author" do
+    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing', homepage:"http://wikipedia.de/alan_turing")
+    visit authors_path
+    
+    expect(page).to have_text 'Alan'
+  end
+end
