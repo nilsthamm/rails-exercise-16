@@ -9,6 +9,13 @@ RSpec.describe AuthorsController, type: :controller do
     end
   end
 
+  describe "GET #edit" do
+    it "renders page" do
+      get :edit
+      expect(response).to render_template("edit")
+    end
+  end
+
   describe "GET #index" do
     it "renders page" do
       get :index
