@@ -30,6 +30,6 @@ describe "authors/index" do
 		assign(:authors, Author.all)
 		render :template => "authors/index.html.erb"
 
-		expect(rendered).to have_selector 'a', :text => 'Delete'
+		expect(rendered).to have_selector 'a', :text => 'Destroy'
 	end
 end
