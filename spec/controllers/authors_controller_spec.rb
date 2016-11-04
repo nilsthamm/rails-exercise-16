@@ -9,6 +9,13 @@ RSpec.describe AuthorsController, type: :controller do
     end
   end
 
+  describe "GET #index" do
+    it "renders page" do
+      get :index
+      expect(response).to render_template("index")
+    end
+  end
+
   describe "GET #show" do
     it "renders page" do
 			@alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing')
