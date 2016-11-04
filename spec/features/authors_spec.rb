@@ -11,6 +11,15 @@ describe "Authors#new page", :type => :feature do
 
     expect(Author.where(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.de/alan_turing")).to exist
   end
+
+  it "should show validation errors" do
+    visit new_author_path
+    fill_in "First name", with: "Alan"
+    fill_in "Homepage", with: "http://wikipedia.de/alan_turing"
+    click_button("Create Author")
+
+    expect(page). to have_text "Last name can't be blank"
+  end
 end
 
 describe "Authors#show page", :type => :feature do
@@ -36,3 +45,4 @@ describe "Authors#index page", :type => :feature do
     expect(page).to have_text 'http://wikipedia.de/alan_turing'
   end
 end
+
