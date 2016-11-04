@@ -19,7 +19,7 @@ describe "Authors#show page", :type => :feature do
     @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing')
     visit authors_path + "/#{Author.find(@alan_turing).id}"
 
-    expect(page).to have_text 'First name: Alan'
+    expect(page).to have_text 'Last name: Turing'
 
   end
 end
