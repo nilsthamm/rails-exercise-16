@@ -6,17 +6,17 @@ describe "Authors#new page", :type => :feature do
     visit new_author_path
     fill_in "First name", with: "Alan"
     fill_in "Last name", with: "Turing"
-    fill_in "Homepage", with: "http://wikipedia.org/Alan_Turing"
+    fill_in "Homepage", with: "http://wikipedia.de/alan_turing"
     click_button("Create Author")
 
-    expect(Author.where(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.org/Alan_Turing")).to exist
+    expect(Author.where(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.de/alan_turing")).to exist
   end
 end
 
 describe "Authors#show page", :type => :feature do
 
   it "should show the authors details" do
-    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing', homepage:"http://wikipedia.de/alan_turing")
+    @alan_turing = create(:author)
     visit authors_path + "/#{@alan_turing.id}"
 
     expect(page).to have_text 'First name: Alan'
@@ -29,7 +29,7 @@ end
 describe "Authors#index page", :type => :feature do
   
   it "should create an instance of the given author" do
-    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing', homepage:"http://wikipedia.de/alan_turing")
+    create(:author)
     visit authors_path
     
     expect(page).to have_text 'Alan Turing'

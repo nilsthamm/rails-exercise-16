@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Author, type: :model do
 	before :each do #do this before each test
-		@alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing')
+		@alan_turing= create(:author)
 	end
 
 	describe "methode name" do
