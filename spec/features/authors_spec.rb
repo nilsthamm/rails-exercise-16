@@ -32,6 +32,7 @@ describe "Authors#index page", :type => :feature do
     @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing', homepage:"http://wikipedia.de/alan_turing")
     visit authors_path
     
-    expect(page).to have_text 'Alan'
+    expect(page).to have_text 'Alan Turing'
+    expect(page).to have_text 'http://wikipedia.de/alan_turing'
   end
 end
