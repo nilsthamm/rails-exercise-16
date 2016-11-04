@@ -1,4 +1,4 @@
-# require 'rails_helper'
+require 'rails_helper'
 
 describe "authors/new" do
 	it "displays fields for first name, last name and homepage" do
