@@ -12,3 +12,14 @@ describe "Authors#new page", :type => :feature do
     expect(Author.where(first_name:"Alan", last_name:"Turing", homepage:"http://wikipedia.org/Alan_Turing")).to exist
   end
 end
+
+describe "Authors#show page", :type => :feature do
+
+  it "should show the authors details" do
+    @alan_turing= Author.create(first_name: 'Alan', last_name: 'Turing')
+    visit authors_path + "/#{Author.find(@alan_turing).id}"
+
+    expect(page).to have_text 'Alan'
+
+  end
+end
