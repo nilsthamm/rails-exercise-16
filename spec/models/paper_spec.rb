@@ -9,5 +9,9 @@ RSpec.describe Paper, type: :model do
 		it "paper without title shouldn't be valid" do
 			Paper.new(:title => "computing machinery and intelligence", :year => "1950").should_not be_valid
 		end
+
+		it "paper without year shouldn't be valid" do
+			Paper.new(:title => "computing machinery and intelligence", :venue => "mind 49: 433-460").should_not be_valid
+		end
 	end
 end
