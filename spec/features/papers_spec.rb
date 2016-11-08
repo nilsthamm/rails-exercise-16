@@ -24,6 +24,19 @@ describe "Papers#show page", :type => :feature do
     expect(page).to have_text 'Year: 1950'
 
   end
+
+  it "should show the author's name" do
+    @computing = create(:paper)
+    @alan_turing = create(:author)
+    @computing.authors.push(@alan_turing)
+    visit papers_path + "/#{@computing.id}"
+
+    expect(page).to have_text 'Title: ' + @computing.title
+    expect(page).to have_text 'Venue: ' + @computing.venue
+    expect(page).to have_text 'Year: 1950'
+    expect(page).to have_text @alan_turing.name
+
+  end
 end
 
 describe "Papers#index page", :type => :feature do
