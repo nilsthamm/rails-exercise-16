@@ -29,7 +29,7 @@ end
 describe "Papers#index page", :type => :feature do
   
   it "should display all papers" do
-    @computing = create(:author)
+    @computing = create(:paper)
     visit papers_path
     
     expect(page).to have_text @computing.title

@@ -1,0 +1,22 @@
+<h1>Listing papers</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Venue</th>
+    <th>Year</th>
+  </tr>
+ 
+  <% @papers.each do |paper| %>
+    <tr>
+      <td><%= paper.title %></td>
+      <td><%= paper.venue %></td>
+      <td><%= paper.year %></td>
+      <td><%= link_to 'Show', paper_path(paper) %></td>
+      <td><%= link_to 'Edit', paper_path(paper) + "/edit" %></td>
+      <td><%= link_to 'Destroy', { action: :destroy, id: paper.id }, method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Add paper', new_author_path %>
