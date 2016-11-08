@@ -9,4 +9,12 @@ RSpec.describe PapersController, type: :controller do
     end
   end
 
+  describe "GET #show" do
+    it "renders page" do
+			@computing= create(:paper)
+      get :show, id: @computing.id
+      expect(response).to render_template("show")
+    end
+  end
+
 end
