@@ -43,6 +43,16 @@ describe "Papers#edit page", :type => :feature do
 
   it "should show 5 dropdowns for authors" do
     @computing = create(:paper)
+    @alan_turing = create(:author)
+    @computing.authors.push(@alan_turing)
+    visit papers_path + "/#{@computing.id}/edit"
+
+    expect(page).to have_select('author 1', selected: 'Alan Turing')
+
+  end
+
+    it "should pre select all current authors" do
+    @computing = create(:paper)
     visit papers_path + "/#{@computing.id}/edit"
 
     expect(page).to have_text 'Author 1'
