@@ -47,7 +47,7 @@ describe "Papers#edit page", :type => :feature do
     @computing.authors.push(@alan_turing)
     visit papers_path + "/#{@computing.id}/edit"
 
-    expect(page).to have_select('author 1', selected: 'Alan Turing')
+    expect(page).to have_select('paper_author_id_1', selected: 'Alan Turing')
 
   end
 
