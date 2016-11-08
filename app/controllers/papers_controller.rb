@@ -3,6 +3,10 @@ class PapersController < ApplicationController
   	@paper = Paper.new
   end
 
+  def edit
+  	@paper = Paper.find(params[:id])
+	end
+
   def create
 	  @paper = Paper.new(paper_params)
 	 
@@ -15,11 +19,18 @@ class PapersController < ApplicationController
     @paper = Paper.find(params[:id])
   end
 
-	def destroy
-	  @author = Author.find(params[:id])
-	  @author.destroy
+  def update
+	  @paper = Paper.find(params[:id])
 	 
-	  redirect_to authors_path
+	  @paper.update(paper_params)
+	  render 'edit'
+	end
+
+	def destroy
+	  @paper = Paper.find(params[:id])
+	  @paper.destroy
+	 
+	  redirect_to papers_path
 	end
 
   def index
