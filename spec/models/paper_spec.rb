@@ -18,4 +18,11 @@ RSpec.describe Paper, type: :model do
 			Paper.new(:title => "computing machinery and intelligence", :venue => "mind 49: 433-460", :year => "nineteen-fifty").should_not be_valid
 		end
 	end
+
+	describe "methode authors" do
+		it "should return list of authors" do
+			@computing = create(:paper)
+			expect(@computing.authors).to eq Array.new()
+		end
+	end
 end
