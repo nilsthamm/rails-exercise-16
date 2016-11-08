@@ -37,7 +37,7 @@ end
 
 describe "Authors#index page", :type => :feature do
   
-  it "should create an instance of the given author" do
+  it "should display all authors" do
     create(:author)
     visit authors_path
     

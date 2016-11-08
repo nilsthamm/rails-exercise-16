@@ -25,3 +25,15 @@ describe "Papers#show page", :type => :feature do
 
   end
 end
+
+describe "Papers#index page", :type => :feature do
+  
+  it "should display all papers" do
+    @computing = create(:author)
+    visit papers_path
+    
+    expect(page).to have_text @computing.title
+    expect(page).to have_text @computing.venue
+    expect(page).to have_text "1950"
+  end
+end
