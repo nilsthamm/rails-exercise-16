@@ -39,6 +39,21 @@ describe "Papers#show page", :type => :feature do
   end
 end
 
+describe "Papers#edit page", :type => :feature do
+
+  it "should show 5 dropdowns for authors" do
+    @computing = create(:paper)
+    visit papers_path + "/#{@computing.id}/edit"
+
+    expect(page).to find_field 'author 1'
+    expect(page).to find_field 'author 2'
+    expect(page).to find_field 'author 3'
+    expect(page).to find_field 'author 4'
+    expect(page).to find_field 'author 5'
+
+  end
+end
+
 describe "Papers#index page", :type => :feature do
   
   it "should display all papers" do
