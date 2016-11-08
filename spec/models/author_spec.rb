@@ -16,4 +16,10 @@ RSpec.describe Author, type: :model do
 			Author.new(:first_name => "Carl", :homepage => "carl.cl").should_not be_valid
 		end
 	end
+
+	describe "methode papers" do
+		it "should return list of papers" do
+			expect(@alan_turing.papers).to eq Array.new()
+		end
+	end
 end
