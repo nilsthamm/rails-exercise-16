@@ -45,11 +45,11 @@ describe "Papers#edit page", :type => :feature do
     @computing = create(:paper)
     visit papers_path + "/#{@computing.id}/edit"
 
-    expect(page).to find_field 'author 1'
-    expect(page).to find_field 'author 2'
-    expect(page).to find_field 'author 3'
-    expect(page).to find_field 'author 4'
-    expect(page).to find_field 'author 5'
+    expect(page).to have_text 'Author 1'
+    expect(page).to have_text 'Author 2'
+    expect(page).to have_text 'Author 3'
+    expect(page).to have_text 'Author 4'
+    expect(page).to have_text 'Author 5'
 
   end
 end
