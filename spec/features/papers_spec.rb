@@ -88,4 +88,12 @@ describe "Papers#index page", :type => :feature do
     expect(page).to have_text @computing.venue
     expect(page).to have_text "1950"
   end
+
+  it "should filter by year" do
+    @computing = create(:paper)
+    create(:paper2)
+    visit papers_path(year: "1950")
+    
+    expect(page).to_not have_text "1968"
+  end
 end
