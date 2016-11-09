@@ -73,7 +73,7 @@ describe "Papers#edit page", :type => :feature do
     find(:select, 'paper_author_id_1').find(:option, 'Peter Plagiarist').select_option
     click_button("Save Paper")
 
-    expect(@computing.authors).to include(@peter)
+    expect((Paper.find(@computing.id)).authors).to include(@peter)
 
   end
 end

@@ -21,7 +21,7 @@ class PapersController < ApplicationController
 
   def update
 	  @paper = Paper.find(params[:id])
-	 
+	 	
 	  @paper.update(paper_params)
 	  render 'edit'
 	end
@@ -39,6 +39,6 @@ class PapersController < ApplicationController
 
 	private
 	  def paper_params
-	    params.require(:paper).permit(:title, :venue, :year)
+	    params.require(:paper).permit(:title, :venue, :year, author_ids: [])
 	  end
 end

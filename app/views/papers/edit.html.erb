@@ -53,7 +53,7 @@
 
       <p>
     <%= f.label "Author 5", for: "paper_author_id_5" %><br>
-    <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[5], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_5"}%>
+    <%= f.collection_select :author_ids, Author.all, :id, :name, {selected: @paper.author_ids[4], include_blank: '(none)'}, {name: "paper[author_ids][]", id: "paper_author_id_5"}%>
   </p>
  
   <p>
