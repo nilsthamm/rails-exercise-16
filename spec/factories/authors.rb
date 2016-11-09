@@ -5,4 +5,10 @@ FactoryGirl.define do
 		homepage "http://wikipedia.de/alan_turing"
   end
 
+  factory :author2, class: Author do
+    first_name "Peter"
+		last_name "Plagiarist"
+		homepage "http://wikipedia.de/alan_turing"
+  end
+
 end

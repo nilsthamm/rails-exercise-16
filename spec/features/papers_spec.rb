@@ -41,7 +41,7 @@ end
 
 describe "Papers#edit page", :type => :feature do
 
-  it "should show 5 dropdowns for authors" do
+  it "should pre select all current authors" do
     @computing = create(:paper)
     @alan_turing = create(:author)
     @computing.authors.push(@alan_turing)
@@ -51,7 +51,7 @@ describe "Papers#edit page", :type => :feature do
 
   end
 
-    it "should pre select all current authors" do
+  it "should show 5 dropdowns for authors" do
     @computing = create(:paper)
     visit papers_path + "/#{@computing.id}/edit"
 
@@ -60,6 +60,20 @@ describe "Papers#edit page", :type => :feature do
     expect(page).to have_text 'Author 3'
     expect(page).to have_text 'Author 4'
     expect(page).to have_text 'Author 5'
+
+  end
+
+  it "should save newly selected authors" do
+    @computing = create(:paper)
+    @alan_turing = create(:author)
+    @computing.authors.push(@alan_turing)
+    @peter = create(:author2)
+
+    visit papers_path + "/#{@computing.id}/edit"
+    find(:select, 'paper_author_id_1').find(:option, 'Peter Plagiarist').select_option
+    click_button("Save Paper")
+
+    expect(@computing.authors).to include(@peter)
 
   end
 end
